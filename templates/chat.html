@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Chat</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5efe6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 400px;
+            height: 550px;
+            background: #fffaf3;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: #8b5e3c;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .chat-box {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #fdf8f3;
+        }
+
+        .message {
+            max-width: 75%;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .sent {
+            align-self: flex-end;
+            background: #8b5e3c;
+            color: white;
+        }
+
+        .received {
+            align-self: flex-start;
+            background: #e6d3c3;
+            color: #3e2c23;
+        }
+
+        .chat-form {
+            display: flex;
+            gap: 8px;
+            padding: 12px;
+            border-top: 1px solid #e0cfc2;
+            background: #fffaf3;
+        }
+
+        .chat-form input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #d2b48c;
+            border-radius: 8px;
+            outline: none;
+            background: #fdf8f3;
+        }
+
+        .chat-form input:focus {
+            border-color: #a67b5b;
+        }
+
+        .chat-form button {
+            padding: 10px 14px;
+            background: #8b5e3c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .chat-form button:hover {
+            background: #6f4e37;
+        }
+
+        .receiver-input {
+            border-bottom: 1px solid #e0cfc2;
+            padding: 10px;
+            background: #fffaf3;
+        }
+
+        .receiver-input input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d2b48c;
+            border-radius: 8px;
+            outline: none;
+            background: #fdf8f3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+
+    <div class="chat-header">
+        Secure Chat
+    </div>
+
+    <form method="POST">
+        <div class="receiver-input">
+            <input type="text" name="receiver" placeholder="Enter receiver username" required>
+        </div>
+
+        <div class="chat-box">
+            {% for msg in messages %}
+                <div class="message received">{{ msg }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="chat-form">
+            <input type="text" name="message" placeholder="Type a message..." required>
+            <button type="submit">Send</button>
+        </div>
+    
+
+    </form>
+
+</div>
+
+</body>
+</html>

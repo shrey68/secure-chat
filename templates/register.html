@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5efe6; /* light beige */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fffaf3;
+            padding: 40px 30px;
+            border-radius: 12px;
+            width: 320px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #5c4033; /* dark brown */
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #d2b48c;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+            background: #fdf8f3;
+        }
+
+        input[type="text"]:focus {
+            border-color: #a67b5b;
+            box-shadow: 0 0 5px rgba(166,123,91,0.3);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #8b5e3c; /* brown */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #6f4e37;
+        }
+
+        .error {
+            margin-top: 10px;
+            color: #b22222;
+            font-size: 14px;
+        }
+
+        .link {
+            margin-top: 15px;
+            display: block;
+            font-size: 14px;
+            color: #8b5e3c;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+            color: #5c4033;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Create Account</h2>
+
+    <form method="POST">
+        <input type="text" name="username" placeholder="Enter username" required>
+        <button type="submit">Register</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <a href="/login" class="link">Already have an account? Login</a>
+</div>
+
+</body>
+</html>
